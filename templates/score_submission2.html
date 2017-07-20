@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="dimi-form">
+        <form method="post" action="{{ url_for('submit') }}">
+            {% for i in [0,1,2,3] %}
+                i
+            {% endfor %}
+
+                <!-- dropdowns in html suck -->
+                <div class="form-group">
+                <label for="user-input-1">User 1</label>
+
+                    <select name="player1" class="form-control" id="user-input-1">
+                        <option value=""></option>
+                        {% for user in users %}
+                            <option value="{{ user }}">{{ user }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            <!-- dropdowns in html suck -->
+                <div class="form-group">
+                <label for="user-input-2">User 2</label>
+
+                    <select name="player2" class="form-control" id="user-input-2">
+                        <option value=""></option>
+                        {% for user in users %}
+                            <option value="{{ user }}">{{ user }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            <!-- dropdowns in html suck -->
+                <div class="form-group">
+                <label for="user-input-3">User 3</label>
+
+                    <select name="player3" class="form-control" id="user-input-3">
+                        <option value=""></option>
+                        {% for user in users %}
+                            <option value="{{ user }}">{{ user }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+
+            <!-- dropdowns in html suck -->
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="user-input-4">User 4</label>
+
+                    <select name="player4" class="form-control mr-3" id="user-input-4">
+                        <option value=""></option>
+                        {% for user in users %}
+                            <option value="{{ user }}">{{ user }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            
+
+                <div class="form-group">
+                    <label for="score4">Score of Player 4</label>
+                    <input type="number" name="score4" min="0" id="score4" max="100" class="form-control"/>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="form-group">
+                <label for="score1">Score of Player A</label>
+                <input type="number" name="score1" id="score1" min="0" max="100"/>
+            </div>
+
+            <div class="form-group">
+                <label for="score2">Score of Player B</label>
+                <input type="number" name="score2" min="0" id="score2" max="100"/>
+            </div>
+
+            <div class="form-group">
+                <label for="score3">Score of Player C</label>
+                <input type="number" name="score3" min="0" id="score3" max="100"/>
+            </div>
+
+            <div class="form-group">
+                <label for="score4">Score of Player D</label>
+                <input type="number" name="score4" min="0" id="score4" max="100"/>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" />
+            </div>
+
+
+
+        </form>
+    </div>
+
+
+{% endblock %}

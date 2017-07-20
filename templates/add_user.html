@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    </div>
+<div id="content">
+    <form method="post" action="{{ url_for('add_user') }}" class="form-horizontal">
+
+
+        <label for="name">Name of new Player</label>
+        <input type="text" name="name"/>
+        <input type="submit"/>
+
+    </form>
+</div>
+{% endblock %}

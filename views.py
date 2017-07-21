@@ -26,18 +26,14 @@ def submit():
         response = request.values
         print(response)
 
-        player1 = response['player1']
-        player2 = response['player2']
-        player3 = response['player3']
-        player4 = response['player4']
+        data = {}
+        for i in range(1, 5):
+            player = response['player'+str(i)]
+            score = response['score'+str(i)]
+            if player:
+                data[player] = int(score)
 
-        # drunk = response['drunk']
-        score1 = int(response['score1'])
-        score2 = int(response['score2'])
-        score3 = int(response['score3'])
-        score4 = int(response['score4'])
-
-        data = {player1: score1, player2: score2, player3: score3, player4: score4}
+        print(data)
         update_elo_4players(data)
 
         return redirect(url_for('index'))

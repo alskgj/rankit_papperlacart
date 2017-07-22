@@ -2,7 +2,7 @@ from flask import Flask
 from flask import render_template, request, redirect, url_for
 from json import loads
 
-from logic import update_elo_4players, write_to_db, player_exists
+from logic import update_elo, player_exists_in_db, write_to_db
 
 app = Flask(__name__)
 
@@ -24,7 +24,6 @@ def submit():
     print(request)
     if request.method == "POST":
         response = request.values
-        print(response)
 
         data = {}
         for i in range(1, 5):
@@ -34,7 +33,7 @@ def submit():
                 data[player] = int(score)
 
         print(data)
-        update_elo_4players(data)
+        update_elo(data)
 
         return redirect(url_for('index'))
     else:
@@ -51,7 +50,7 @@ def add_user():
     if request.method == 'POST':
         playername = request.values['name']
         print(request.values, playername)
-        if not player_exists(playername):
+        if not player_exists_in_db(playername):
             write_to_db(playername, 1500)
     else:
         print(request.method)
